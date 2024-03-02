@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 
 namespace eTickets.Controllers
 {
-    [Authorize] 
+    //[Authorize] 
     public class OrdersController : Controller
     {
         private readonly IMoviesService _moviesService;
@@ -24,6 +24,20 @@ namespace eTickets.Controllers
             _moviesService = moviesService;
             _shoppingCart = shoppingCart;
             _ordersService = ordersService;
+        }
+        public ActionResult Save()
+        {
+            //Some code
+            return PartialView();
+        }
+        [HttpGet]
+        public JsonResult OrderSave(string name)
+        {
+             
+            return new JsonResult(new
+            {
+                msg = "Success",
+            });
         }
 
         public async Task<IActionResult> Index()

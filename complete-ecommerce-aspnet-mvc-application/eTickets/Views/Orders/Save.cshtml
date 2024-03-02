@@ -1,0 +1,25 @@
+﻿@{
+    Layout = null;
+}
+<div>
+    <input id="wrkname" class="form-control" />
+    <button onclick="Save()">Save</button>
+</div>
+<script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+<script>
+    function Save() { 
+        console.log($("#wrkname").val());
+
+        $.ajax({
+            url: '/Orders/OrderSave',
+            type: 'GET',
+            dataType: 'json',
+            data: {
+                name: $("#wrkname").val()
+            },
+            success: function (data) {
+                console.log(data);
+            }
+        });
+    } 
+</script>
